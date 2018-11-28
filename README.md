@@ -121,3 +121,24 @@ application/wfs-collection-1.1 ou text/xml; subtype=wfs-collection/1.1 | Documen
 application/json | Document GeoJSON
 application/zip |	Archive ZIP
 
+## Service annexe d'affichage des données prétraitées
+
+Ce service (OGC:WMS) permet d'afficher les données prétraitées servant de bases au calcul de bassins versants. Il est donc dépendant de la configuration (d'où le recours à un WMS paramétré). 
+
+### Couche du réseau hydrographique modélisé
+
+Cette couche permet d'afficher, pour une configuration donnée, le réseau hydrographique modélisé (flux d'accumulation), obtenu par prétraitement principalement du MNT pris en entrée. 
+
+* URL de base : http://mapsref.brgm.fr/wxs/rhf/simulation?
+* Nom de la couche : reseau 
+* Paramètre configuration : CONFIG_ID (non standard OGC:WMS)
+* Exemple d'appel GetMap : http://mapsref.brgm.fr/wxs/rhf/simulation?LAYERS=reseau&TRANSPARENT=true&VERSION=1.1.1&FORMAT=png&SERVICE=WMS&REQUEST=GetMap&STYLES=&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&SRS=EPSG%3A2154&CONFIG_ID=19&BBOX=615081.48646148,6753484.2160684,616536.694009,6754674.8404254&WIDTH=550&HEIGHT=450
+
+### Couche des bassins versants élémentaires
+
+Cette couche permet d'afficher, pour une configuration donnée, l'ensemble des bassins versants élémentaires précalculés. 
+
+* URL de base : http://mapsref.brgm.fr/wxs/rhf/bvelementaires?
+* Nom de la couche : bv_elementaires
+* Paramètre configuration : CONFIG_ID (non standard OGC:WMS)
+* Exemple d'appel GetMap : http://mapsref.brgm.fr/wxs/rhf/bvelementaires?LAYERS=bv_elementaires&TRANSPARENT=true&VERSION=1.1.1&FORMAT=png&SERVICE=WMS&REQUEST=GetMap&STYLES=&EXCEPTIONS=application%2Fvnd.ogc.se_inimage&SRS=EPSG%3A2154&BBOX=613421.22694136,6752064.7272513,617059.24581016,6755041.2881439&WIDTH=550&HEIGHT=450
